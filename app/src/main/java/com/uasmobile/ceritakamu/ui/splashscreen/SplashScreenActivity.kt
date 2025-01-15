@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.uasmobile.ceritakamu.MainActivity
 import com.uasmobile.ceritakamu.R
 import com.uasmobile.ceritakamu.SessionManager
+import com.uasmobile.ceritakamu.ui.onboarding.LastOnboardingActivity
 import com.uasmobile.ceritakamu.ui.onboarding.OnboardingActivity
 
 @SuppressLint("CustomSplashScreen")
@@ -17,10 +19,17 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         val sessionManager = SessionManager(this)
-        val targetActivity = if (sessionManager.isOnboardingShown()) {
-            OnboardingActivity::class.java
-        } else {
-            OnboardingActivity::class.java
+        val targetActivity = when {
+            !sessionManager.isOnboardingShown() -> {
+                sessionManager.setOnboardingShown()
+                OnboardingActivity::class.java
+            }
+            sessionManager.isLoggedIn() -> {
+                MainActivity::class.java
+            }
+            else -> {
+                LastOnboardingActivity::class.java
+            }
         }
 
         Handler(Looper.getMainLooper()).postDelayed({

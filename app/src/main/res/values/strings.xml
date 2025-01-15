@@ -4,6 +4,11 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
-    // String Last Onboarding
+    // Onboarding
     <string name="app_logo">Logo</string>
+    <string name="gambar_onboarding">Gambar onboarding</string>
+    <string name="text_onboarding1">Selamat datang di Pengelola Koleksi Buku!\nTemukan cara mudah untuk mengelola koleksi bukumu.</string>
+    <string name="text_onboarding2">Temukan buku-buku terbaru\nCari dan eksplorasi berbagai buku dari koleksi besar kami.</string>
+    <string name="text_onboarding3">Kelola koleksi bukumu\nTambahkan buku ke koleksimu dan tandai buku favorit.</string>
+
 </resources>

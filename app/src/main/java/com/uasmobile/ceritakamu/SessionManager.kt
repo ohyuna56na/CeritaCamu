@@ -6,6 +6,18 @@ import com.uasmobile.ceritakamu.userdb.User
 class SessionManager(context: Context) {
     private val sharedPreferences = context.getSharedPreferences("session_prefs", Context.MODE_PRIVATE)
 
+    fun isOnboardingShown(): Boolean {
+        return sharedPreferences.getBoolean("onboarding_shown", false)
+    }
+
+    fun setOnboardingShown() {
+        sharedPreferences.edit().putBoolean("onboarding_shown", true).apply()
+    }
+
+    fun isLoggedIn(): Boolean {
+        return sharedPreferences.contains("user_id")
+    }
+
     fun saveUser(user: User) {
         val editor = sharedPreferences.edit()
         editor.putInt("user_id", user.id)
@@ -25,19 +37,7 @@ class SessionManager(context: Context) {
         }
     }
 
-    fun isLoggedIn(): Boolean {
-        return sharedPreferences.contains("user_id")
-    }
-
     fun clearSession() {
         sharedPreferences.edit().clear().apply()
-    }
-
-    fun isOnboardingShown(): Boolean {
-        return sharedPreferences.getBoolean("onboarding_shown", false)
-    }
-
-    fun setOnboardingShown(isShown: Boolean) {
-        sharedPreferences.edit().putBoolean("onboarding_shown", isShown).apply()
     }
 }

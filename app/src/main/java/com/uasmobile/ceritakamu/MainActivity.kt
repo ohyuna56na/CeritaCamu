@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.uasmobile.ceritakamu.databinding.ActivityMainBinding
 import com.uasmobile.ceritakamu.ui.login.LoginActivity
+import com.uasmobile.ceritakamu.ui.onboarding.LastOnboardingActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,8 +25,6 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         val sessionManager = SessionManager(this)
         if (!sessionManager.isLoggedIn()) {
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, LastOnboardingActivity::class.java))
             finish()
         }
     }
