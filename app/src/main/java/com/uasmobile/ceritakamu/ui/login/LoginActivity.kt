@@ -3,10 +3,18 @@ package com.uasmobile.ceritakamu.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.uasmobile.ceritakamu.MainActivity
 import com.uasmobile.ceritakamu.R
+import com.uasmobile.ceritakamu.SessionManager
 import com.uasmobile.ceritakamu.databinding.ActivityLoginBinding
 import com.uasmobile.ceritakamu.ui.register.RegisterActivity
+import com.uasmobile.ceritakamu.userdb.UserDatabase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class LoginActivity : AppCompatActivity() {
 
@@ -23,8 +31,31 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            // Logika login di sini
+            val email = binding.etEmail.text.toString()
+            val password = binding.passwordInput.text.toString()
+
+            if (email.isNotEmpty() && password.isNotEmpty()) {
+                val userDao = UserDatabase.getInstance(this).userDao()
+                CoroutineScope(Dispatchers.IO).launch {
+                    val user = userDao.getUser(email, password)
+                    if (user != null) {
+                        SessionManager(this@LoginActivity).saveUser(user)
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(this@LoginActivity, "Login berhasil", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                            finish()
+                        }
+                    } else {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(this@LoginActivity, "Email atau password salah", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Harap isi semua data", Toast.LENGTH_SHORT).show()
+            }
         }
+
 
         binding.tvRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
