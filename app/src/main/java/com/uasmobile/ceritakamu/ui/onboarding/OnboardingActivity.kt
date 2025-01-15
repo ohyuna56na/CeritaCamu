@@ -3,7 +3,6 @@ package com.uasmobile.ceritakamu.ui.onboarding
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.uasmobile.ceritakamu.MainActivity
 import com.uasmobile.ceritakamu.R
 import com.uasmobile.ceritakamu.databinding.ActivityOnboardingBinding
 
@@ -57,7 +56,7 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     private fun navigateToMain() {
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, LastOnboardingActivity::class.java))
         finish()
     }
 }

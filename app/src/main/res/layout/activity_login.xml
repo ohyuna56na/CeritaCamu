@@ -1,0 +1,127 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/Iv_backLogin"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:contentDescription="Back"
+            android:src="@drawable/ic_back"
+            android:layout_marginBottom="50dp" />
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Silahkan Masuk Terlebih Dahulu"
+            android:textSize="18sp"
+            android:textColor="@color/purple_200"
+            android:fontFamily="@font/poppins"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hai! Selamat datang kembali"
+            android:textSize="16sp"
+            android:textColor="@color/teks"
+            android:fontFamily="@font/bryndan"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center"/>
+
+        <!-- Email -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="18sp"
+            android:textColor="@color/teks"
+            android:fontFamily="@font/merienda"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Masukkan email"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"
+            android:background="@color/teal_200"
+            android:padding="12dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Password -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="18sp"
+            android:textColor="@color/teks"
+            android:fontFamily="@font/merienda"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/teal_200"
+                android:fontFamily="@font/merienda"
+                android:hint="Masukkan password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/visibilityToggleRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Toggle Visibility"
+                android:src="@drawable/visibility_off"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/passwordInput"
+                android:layout_marginEnd="16dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Tombol Login -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:backgroundTint="@color/purple_200"
+            android:textColor="@color/white"
+            android:fontFamily="@font/merienda"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Belum Punya Akun -->
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum memiliki akun? Daftar"
+            android:textSize="14sp"
+            android:textColor="@color/teks"
+            android:fontFamily="@font/bryndan"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</ScrollView>

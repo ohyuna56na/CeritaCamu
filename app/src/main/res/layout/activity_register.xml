@@ -1,0 +1,152 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Back Button -->
+        <ImageView
+            android:id="@+id/Iv_backLogin"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:contentDescription="Back"
+            android:src="@drawable/ic_back"
+            android:layout_marginBottom="50dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <!-- Header -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Silahkan Buat Akun Terlebih Dahulu"
+                android:textSize="18sp"
+                android:textColor="@color/purple_200"
+                android:fontFamily="@font/poppins" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Isi Informasi di bawah ini"
+                android:textSize="16sp"
+                android:textColor="@color/teks"
+                android:fontFamily="@font/bryndan"
+                android:layout_marginBottom="30dp" />
+        </LinearLayout>
+
+        <!-- Nama -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:textSize="18sp"
+            android:textColor="@color/teks"
+            android:fontFamily="@font/merienda"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@color/teal_200"
+            android:fontFamily="@font/merienda"
+            android:hint="Masukkan nama anda"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+        <!-- Email -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="18sp"
+            android:textColor="@color/teks"
+            android:fontFamily="@font/merienda"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@color/teal_200"
+            android:fontFamily="@font/merienda"
+            android:hint="Masukkan email anda"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+        <!-- Password -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="18sp"
+            android:textColor="@color/teks"
+            android:fontFamily="@font/merienda"
+            android:layout_marginBottom="8dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/teal_200"
+                android:fontFamily="@font/merienda"
+                android:hint="Masukkan password"
+                android:inputType="textPassword"
+                android:padding="12dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/visibilityToggleRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Toggle Visibility"
+                android:src="@drawable/visibility_off"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/passwordInput"
+                android:layout_marginEnd="16dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Tombol Register -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:backgroundTint="@color/purple_200"
+            android:textColor="@color/white"
+            android:fontFamily="@font/merienda"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Sudah Punya Akun -->
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sudah memiliki akun? Masuk"
+            android:textSize="14sp"
+            android:textColor="@color/teks"
+            android:fontFamily="@font/bryndan"
+            android:layout_gravity="center" />
+    </LinearLayout>
+</ScrollView>
