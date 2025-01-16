@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,7 +16,7 @@
             android:id="@+id/Iv_backLogin"
             android:layout_width="26dp"
             android:layout_height="26dp"
-            android:contentDescription="Back"
+            android:contentDescription="@string/back"
             android:src="@drawable/ic_back"
             android:layout_marginBottom="50dp" />
 
@@ -23,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Silahkan Masuk Terlebih Dahulu"
+            android:text="@string/login_welcome"
             android:textSize="18sp"
             android:textColor="@color/purple_200"
             android:fontFamily="@font/poppins"
@@ -33,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hai! Selamat datang kembali"
+            android:text="@string/login_desc"
             android:textSize="16sp"
             android:textColor="@color/teks"
             android:fontFamily="@font/bryndan"
@@ -44,7 +45,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="@string/email"
             android:textSize="18sp"
             android:textColor="@color/teks"
             android:fontFamily="@font/merienda"
@@ -54,18 +55,19 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Masukkan email"
+            android:hint="@string/masukkan_email"
             android:fontFamily="@font/merienda"
             android:textSize="16sp"
             android:background="@color/teal_200"
             android:padding="12dp"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            tools:ignore="Autofill" />
 
         <!-- Password -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:text="@string/password"
             android:textSize="18sp"
             android:textColor="@color/teks"
             android:fontFamily="@font/merienda"
@@ -82,19 +84,20 @@
                 android:layout_height="wrap_content"
                 android:background="@color/teal_200"
                 android:fontFamily="@font/merienda"
-                android:hint="Masukkan password"
+                android:hint="@string/masukkan_password"
                 android:inputType="textPassword"
                 android:padding="12dp"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="Autofill" />
 
             <ImageView
                 android:id="@+id/visibilityToggleRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="Toggle Visibility"
+                android:contentDescription="@string/toggle_visibility"
                 android:src="@drawable/visibility_off"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -107,7 +110,7 @@
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
+            android:text="@string/login"
             android:backgroundTint="@color/purple_200"
             android:textColor="@color/white"
             android:fontFamily="@font/merienda"
@@ -119,7 +122,7 @@
             android:id="@+id/tvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Belum memiliki akun? Daftar"
+            android:text="@string/belum_memiliki_akun"
             android:textSize="14sp"
             android:textColor="@color/teks"
             android:fontFamily="@font/bryndan"

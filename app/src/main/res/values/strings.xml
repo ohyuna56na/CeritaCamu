@@ -10,5 +10,29 @@
     <string name="text_onboarding1">Selamat datang di Pengelola Koleksi Buku!\nTemukan cara mudah untuk mengelola koleksi bukumu.</string>
     <string name="text_onboarding2">Temukan buku-buku terbaru\nCari dan eksplorasi berbagai buku dari koleksi besar kami.</string>
     <string name="text_onboarding3">Kelola koleksi bukumu\nTambahkan buku ke koleksimu dan tandai buku favorit.</string>
+    <string name="welcome">Selamat Datang di Cerita Camu!</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="next">Next</string>
+
+
+    // Login Register
+    <string name="back">Back</string>
+    <string name="login_welcome">Silahkan Masuk Terlebih Dahulu</string>
+    <string name="login_desc">Hai! Selamat datang kembali</string>
+    <string name="email">Email</string>
+    <string name="masukkan_email">Masukkan email</string>
+    <string name="password">Password</string>
+    <string name="masukkan_password">Masukkan password</string>
+    <string name="toggle_visibility">Toggle Visibility</string>
+    <string name="belum_memiliki_akun">Belum memiliki akun? Daftar</string>
+    <string name="register_welcome">Silahkan Buat Akun Terlebih Dahulu</string>
+    <string name="register_desc">Isi Informasi di bawah ini</string>
+    <string name="nama">Nama</string>
+    <string name="masukkan_nama_anda">Masukkan nama anda</string>
+    <string name="sudah_memiliki_akun">Sudah memiliki akun? Masuk</string>
+
+    // Home dan Detail
+    <string name="book_cover">Book Cover</string>
 
 </resources>

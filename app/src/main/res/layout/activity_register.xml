@@ -1,4 +1,5 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -15,7 +16,7 @@
             android:id="@+id/Iv_backLogin"
             android:layout_width="26dp"
             android:layout_height="26dp"
-            android:contentDescription="Back"
+            android:contentDescription="@string/back"
             android:src="@drawable/ic_back"
             android:layout_marginBottom="50dp" />
 
@@ -28,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Silahkan Buat Akun Terlebih Dahulu"
+                android:text="@string/register_welcome"
                 android:textSize="18sp"
                 android:textColor="@color/purple_200"
                 android:fontFamily="@font/poppins" />
@@ -36,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Isi Informasi di bawah ini"
+                android:text="@string/register_desc"
                 android:textSize="16sp"
                 android:textColor="@color/teks"
                 android:fontFamily="@font/bryndan"
@@ -47,7 +48,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama"
+            android:text="@string/nama"
             android:textSize="18sp"
             android:textColor="@color/teks"
             android:fontFamily="@font/merienda"
@@ -60,7 +61,7 @@
             android:layout_marginBottom="20dp"
             android:background="@color/teal_200"
             android:fontFamily="@font/merienda"
-            android:hint="Masukkan nama anda"
+            android:hint="@string/masukkan_nama_anda"
             android:minHeight="48dp"
             android:padding="12dp"
             android:textSize="16sp" />
@@ -69,7 +70,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="@string/email"
             android:textSize="18sp"
             android:textColor="@color/teks"
             android:fontFamily="@font/merienda"
@@ -82,16 +83,17 @@
             android:layout_marginBottom="20dp"
             android:background="@color/teal_200"
             android:fontFamily="@font/merienda"
-            android:hint="Masukkan email anda"
+            android:hint="@string/masukkan_email"
             android:minHeight="48dp"
             android:padding="12dp"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="Autofill" />
 
         <!-- Password -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:text="@string/password"
             android:textSize="18sp"
             android:textColor="@color/teks"
             android:fontFamily="@font/merienda"
@@ -108,7 +110,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/teal_200"
                 android:fontFamily="@font/merienda"
-                android:hint="Masukkan password"
+                android:hint="@string/masukkan_password"
+                android:importantForAutofill="no"
                 android:inputType="textPassword"
                 android:padding="12dp"
                 android:textSize="16sp"
@@ -120,7 +123,7 @@
                 android:id="@+id/visibilityToggleRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="Toggle Visibility"
+                android:contentDescription="@string/toggle_visibility"
                 android:src="@drawable/visibility_off"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -133,7 +136,7 @@
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register"
+            android:text="@string/register"
             android:backgroundTint="@color/purple_200"
             android:textColor="@color/white"
             android:fontFamily="@font/merienda"
@@ -145,7 +148,7 @@
             android:id="@+id/tvLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sudah memiliki akun? Masuk"
+            android:text="@string/sudah_memiliki_akun"
             android:textSize="14sp"
             android:textColor="@color/teks"
             android:fontFamily="@font/bryndan"
