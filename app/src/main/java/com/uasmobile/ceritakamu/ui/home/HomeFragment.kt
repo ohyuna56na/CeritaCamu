@@ -8,11 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.uasmobile.ceritakamu.databinding.FragmentHomeBinding
+import com.uasmobile.ceritakamu.paging.BookPagingAdapter
 import com.uasmobile.ceritakamu.repository.BookRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -35,16 +39,23 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = BookAdapter { book ->
+        val viewModel: HomeViewModel by viewModels { ViewModelFactory(BookRepository()) }
+        val adapter = BookPagingAdapter { book ->
             val intent = Intent(requireContext(), BookDetailActivity::class.java)
             intent.putExtra("BOOK_DATA", book)
             startActivity(intent)
         }
+
         binding.recyclerViewBooks.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewBooks.adapter = adapter
 
-        fetchBooks()
+        lifecycleScope.launch {
+            viewModel.getBooks("novels+fiction+comics").collectLatest { pagingData ->
+                adapter.submitData(pagingData)
+            }
+        }
     }
+
 
     private fun fetchBooks() {
         CoroutineScope(Dispatchers.IO).launch {
