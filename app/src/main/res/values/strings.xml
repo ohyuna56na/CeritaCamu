@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Cerita Kamu</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_dashboard">Favorite</string>
+    <string name="title_notifications">Profile</string>
 
     // Onboarding
     <string name="app_logo">Logo</string>
