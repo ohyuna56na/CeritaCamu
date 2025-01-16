@@ -51,7 +51,9 @@
             android:name=".MainActivity"
             android:label="@string/app_name" />
 
-
+        <activity
+            android:name=".ui.home.BookDetailActivity"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

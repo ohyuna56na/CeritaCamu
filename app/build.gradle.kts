@@ -57,4 +57,12 @@ dependencies {
     implementation (libs.androidx.room.runtime)
     implementation (libs.androidx.room.ktx)
     ksp(libs.room.compiler)
+
+    implementation (libs.retrofit)
+    implementation (libs.retrofit2.converter.gson)
+    implementation (libs.androidx.recyclerview)
+    implementation (libs.picasso)
+
+    implementation (libs.glide)
+    annotationProcessor (libs.compiler)
 }
