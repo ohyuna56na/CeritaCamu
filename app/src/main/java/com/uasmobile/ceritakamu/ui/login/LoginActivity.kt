@@ -31,8 +31,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnLogin.setOnClickListener {
-            val email = binding.etEmail.text.toString()
-            val password = binding.passwordInput.text.toString()
+            val email = binding.etEmail.text.toString().trim()
+            val password = binding.passwordInput.text.toString().trim()
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 val userDao = UserDatabase.getInstance(this).userDao()
@@ -55,7 +55,6 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Harap isi semua data", Toast.LENGTH_SHORT).show()
             }
         }
-
 
         binding.tvRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))

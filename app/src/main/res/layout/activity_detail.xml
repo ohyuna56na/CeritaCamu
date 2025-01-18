@@ -89,14 +89,14 @@
 
             <ImageButton
                 android:id="@+id/favoriteButton"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="2dp"
                 android:layout_marginRight="2dp"
                 android:contentDescription="@string/tambah_ke_favorite"
-                android:backgroundTint="@color/teal_700"
+                android:backgroundTint="@color/white"
                 android:src="@drawable/ic_favorite_off"
                 app:cornerRadius="20dp" />
         </RelativeLayout>
@@ -257,7 +257,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/open_preview_link"
-            app:cornerRadius="20dp" />
+            android:background="@drawable/rounded_button" />
 
         <Button
             android:id="@+id/infoLinkButton"
@@ -265,6 +265,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/open_info_link"
-            app:cornerRadius="20dp" />
+            android:background="@drawable/rounded_button" />
     </LinearLayout>
 </ScrollView>

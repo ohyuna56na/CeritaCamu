@@ -72,6 +72,6 @@
             android:text="Logout"
             android:textColor="#FFFFFF"
             android:backgroundTint="@color/purple_200"
-            app:cornerRadius="20dp"/>
+            android:background="@drawable/rounded_button"/>
     </LinearLayout>
 </LinearLayout>

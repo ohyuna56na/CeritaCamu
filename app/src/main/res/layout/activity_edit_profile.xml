@@ -1,5 +1,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,7 +14,8 @@
         android:src="@drawable/person"
         android:layout_gravity="center"
         android:scaleType="centerCrop"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        tools:ignore="ContentDescription" />
 
     <EditText
         android:id="@+id/etName"
@@ -39,5 +41,6 @@
         android:text="Simpan"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/purple_200"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF"
+        android:background="@drawable/rounded_button"/>
 </LinearLayout>
