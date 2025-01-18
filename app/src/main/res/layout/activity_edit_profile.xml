@@ -1,0 +1,43 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/ivEditProfileImage"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/person"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_500"
+        android:hint="Nama"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/purple_500"
+        android:hint="Email"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/purple_200"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>

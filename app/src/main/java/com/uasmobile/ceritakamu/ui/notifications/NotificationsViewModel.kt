@@ -6,8 +6,21 @@ import androidx.lifecycle.ViewModel
 
 class NotificationsViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+    private val _name = MutableLiveData<String>().apply {
+        value = "Brian"
     }
-    val text: LiveData<String> = _text
+    val name: LiveData<String> = _name
+
+    private val _email = MutableLiveData<String>().apply {
+        value = "brian@gmail.com"
+    }
+    val email: LiveData<String> = _email
+
+    fun updateName(newName: String) {
+        _name.value = newName
+    }
+
+    fun updateEmail(newEmail: String) {
+        _email.value = newEmail
+    }
 }

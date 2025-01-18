@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"
+        tools:ignore="SelectedPhotoAccess" />
 
     <application
         android:allowBackup="true"
@@ -53,6 +55,14 @@
 
         <activity
             android:name=".ui.home.BookDetailActivity"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name=".ui.editprofile.EditProfileActivity"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name=".ui.setting.SettingsActivity"
             android:label="@string/app_name" />
     </application>
 

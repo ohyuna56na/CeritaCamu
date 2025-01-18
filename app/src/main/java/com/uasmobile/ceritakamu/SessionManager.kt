@@ -27,6 +27,7 @@ class SessionManager(context: Context) {
         editor.putInt("user_id", user.id)
         editor.putString("user_name", user.name)
         editor.putString("user_email", user.email)
+        editor.putString("user_profile_image", user.profileImage) // Menyimpan URL gambar profil
         editor.apply()
     }
 
@@ -34,8 +35,9 @@ class SessionManager(context: Context) {
         val id = sharedPreferences.getInt("user_id", -1)
         val name = sharedPreferences.getString("user_name", null)
         val email = sharedPreferences.getString("user_email", null)
+        val profileImage = sharedPreferences.getString("user_profile_image", null)
         return if (id != -1 && name != null && email != null) {
-            User(id, name, email, "")
+            User(id, name, email, "", profileImage)
         } else {
             null
         }
