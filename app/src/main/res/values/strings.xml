@@ -32,13 +32,31 @@
     <string name="masukkan_nama_anda">Masukkan nama anda</string>
     <string name="sudah_memiliki_akun">Sudah memiliki akun? Masuk</string>
 
-    // Home, Detail dan Searh
+    // Home dan Detail
     <string name="book_cover">Book Cover</string>
+    <string name="open_preview_link">Open Preview Link</string>
+    <string name="open_info_link">Open Info Link</string>
+    <string name="panelization_summary">Panelization Summary</string>
+    <string name="reading_modes">Reading Modes</string>
+    <string name="content_version">Content Version</string>
+    <string name="anonymous_logging">Anonymous Logging</string>
+    <string name="maturity_rating">Maturity Rating</string>
+    <string name="print_type">Print Type</string>
+    <string name="categories">Categories</string>
+    <string name="language">Language</string>
+    <string name="page_count">Page Count</string>
+    <string name="description">Description</string>
+    <string name="published_date">Published Date</string>
+    <string name="publisher">Publisher</string>
+    <string name="authors">Authors</string>
+    <string name="title">Title</string>
+
+    // Search dan favorite
     <string name="search">Search</string>
     <string name="search_icon">Search Icon</string>
     <string name="indonesia">Indonesia</string>
     <string name="inggris">Inggris</string>
     <string name="cari_sesuatu">Cari sesuatu...</string>
     <string name="pilih_bahasa_dan_masukkan_pencarian">Pilih bahasa dan masukkan pencarian</string>
-
+    <string name="tambah_ke_favorite">Tambah ke favorite</string>
 </resources>

@@ -21,121 +21,138 @@
             android:textSize="20sp"
             android:layout_marginTop="16dp"
             android:textStyle="bold"
-            android:text="Title" />
+            android:text="@string/title" />
 
-        <TextView
-            android:id="@+id/authorsTextView"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"
-            android:text="Authors" />
+            android:layout_marginTop="16dp">
 
-        <TextView
-            android:id="@+id/publisherTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"
-            android:text="Publisher" />
+            <LinearLayout
+                android:id="@+id/textContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true">
 
-        <TextView
-            android:id="@+id/publishedDateTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginTop="8dp"
-            android:text="Published Date" />
+                <TextView
+                    android:id="@+id/authorsTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/authors"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/publisherTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/publisher"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/publishedDateTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/published_date"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/favoriteButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_favorite_off"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/tambah_ke_favorite" />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Description" />
+            android:text="@string/description" />
 
         <TextView
             android:id="@+id/pageCountTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Page Count" />
+            android:text="@string/page_count" />
 
         <TextView
             android:id="@+id/languageTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Language" />
+            android:text="@string/language" />
 
         <TextView
             android:id="@+id/categoriesTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Categories" />
+            android:text="@string/categories" />
 
         <TextView
             android:id="@+id/printTypeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Print Type" />
+            android:text="@string/print_type" />
 
         <TextView
             android:id="@+id/maturityRatingTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Maturity Rating" />
+            android:text="@string/maturity_rating" />
 
         <TextView
             android:id="@+id/allowAnonLoggingTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Anonymous Logging" />
+            android:text="@string/anonymous_logging" />
 
         <TextView
             android:id="@+id/contentVersionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Content Version" />
+            android:text="@string/content_version" />
 
         <TextView
             android:id="@+id/readingModesTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Reading Modes" />
+            android:text="@string/reading_modes" />
 
         <TextView
             android:id="@+id/panelizationSummaryTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Panelization Summary" />
+            android:text="@string/panelization_summary" />
 
         <Button
             android:id="@+id/previewLinkButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Open Preview Link" />
+            android:text="@string/open_preview_link" />
 
         <Button
             android:id="@+id/infoLinkButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Open Info Link" />
-
-        <Button
-            android:id="@+id/canonicalLinkButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Open Canonical Link" />
+            android:text="@string/open_info_link" />
     </LinearLayout>
 </ScrollView>

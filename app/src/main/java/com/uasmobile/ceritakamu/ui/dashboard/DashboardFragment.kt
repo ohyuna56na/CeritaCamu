@@ -1,42 +1,56 @@
 package com.uasmobile.ceritakamu.ui.dashboard
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import com.uasmobile.ceritakamu.databinding.FragmentDashboardBinding
+import com.uasmobile.ceritakamu.ui.home.BookDetailActivity
 
 class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
-
+        Log.d("DashboardFragment", "onCreateView called")
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d("DashboardFragment", "onViewCreated called")
+
+        binding.recyclerView.layoutManager = GridLayoutManager(context, 2)
+        Log.d("DashboardFragment", "RecyclerView LayoutManager set to GridLayoutManager")
+
+        binding.progressBar.visibility = View.VISIBLE
+
+        sharedViewModel.favoriteBooks.observe(viewLifecycleOwner) { favoriteBooks ->
+            binding.progressBar.visibility = View.GONE
+
+            val adapter = FavoriteAdapter(favoriteBooks) { favoriteBook ->
+                val intent = Intent(activity, BookDetailActivity::class.java)
+                intent.putExtra("BOOK_DATA", favoriteBook)
+                startActivity(intent)
+            }
+            binding.recyclerView.adapter = adapter
         }
-        return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        Log.d("DashboardFragment", "onDestroyView called")
         _binding = null
     }
 }

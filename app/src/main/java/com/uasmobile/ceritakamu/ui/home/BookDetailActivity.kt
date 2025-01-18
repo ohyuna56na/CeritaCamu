@@ -5,18 +5,25 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.uasmobile.ceritakamu.R
 import com.uasmobile.ceritakamu.databinding.ActivityDetailBinding
 import com.uasmobile.ceritakamu.model.BookItem
 import com.uasmobile.ceritakamu.model.VolumeInfo
+import com.uasmobile.ceritakamu.ui.dashboard.SharedViewModel
+import kotlinx.coroutines.launch
 
 
 @Suppress("DEPRECATION")
 class BookDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
+    private var isFavorite: Boolean = false
+    private val sharedViewModel: SharedViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +31,19 @@ class BookDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val book = intent.getParcelableExtra<BookItem>("BOOK_DATA")
-        book?.let { showBookDetails(it.volumeInfo) }
+        book?.let {
+            showBookDetails(it.volumeInfo)
+            lifecycleScope.launch {
+                isFavorite = sharedViewModel.isFavorite(it)
+                updateFavoriteIcon()
+            }
+        }
+
+        binding.favoriteButton.setOnClickListener {
+            isFavorite = !isFavorite
+            updateFavoriteIcon()
+            handleFavorite(book)
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -59,7 +78,6 @@ class BookDetailActivity : AppCompatActivity() {
 
         binding.previewLinkButton.setOnClickListener { openLink(volumeInfo.previewLink) }
         binding.infoLinkButton.setOnClickListener { openLink(volumeInfo.infoLink) }
-        binding.canonicalLinkButton.setOnClickListener { openLink(volumeInfo.canonicalVolumeLink) }
     }
 
     private fun openLink(url: String?) {
@@ -68,6 +86,25 @@ class BookDetailActivity : AppCompatActivity() {
         } else {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
             startActivity(intent)
+        }
+    }
+
+    private fun updateFavoriteIcon() {
+        val icon = if (isFavorite) R.drawable.favorite_on else R.drawable.ic_favorite_off
+        binding.favoriteButton.setImageDrawable(ContextCompat.getDrawable(this, icon))
+    }
+
+    private fun handleFavorite(book: BookItem?) {
+        book?.let {
+            lifecycleScope.launch {
+                if (isFavorite) {
+                    sharedViewModel.addFavoriteBook(it)
+                    Toast.makeText(this@BookDetailActivity, "Ditambahkan ke Favorit", Toast.LENGTH_SHORT).show()
+                } else {
+                    sharedViewModel.removeFavoriteBook(it)
+                    Toast.makeText(this@BookDetailActivity, "Dihapus dari Favorit", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }

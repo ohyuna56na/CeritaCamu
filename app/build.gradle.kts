@@ -66,4 +66,11 @@ dependencies {
     implementation (libs.glide)
     annotationProcessor (libs.compiler)
     implementation (libs.androidx.paging.runtime)
+
+    implementation (libs.gson)
+
+    implementation (libs.androidx.activity.ktx)
+    implementation (libs.androidx.fragment.ktx)
+
+
 }
