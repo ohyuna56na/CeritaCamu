@@ -32,7 +32,13 @@
     <string name="masukkan_nama_anda">Masukkan nama anda</string>
     <string name="sudah_memiliki_akun">Sudah memiliki akun? Masuk</string>
 
-    // Home dan Detail
+    // Home, Detail dan Searh
     <string name="book_cover">Book Cover</string>
+    <string name="search">Search</string>
+    <string name="search_icon">Search Icon</string>
+    <string name="indonesia">Indonesia</string>
+    <string name="inggris">Inggris</string>
+    <string name="cari_sesuatu">Cari sesuatu...</string>
+    <string name="pilih_bahasa_dan_masukkan_pencarian">Pilih bahasa dan masukkan pencarian</string>
 
 </resources>

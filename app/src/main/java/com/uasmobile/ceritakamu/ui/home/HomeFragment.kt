@@ -50,31 +50,10 @@ class HomeFragment : Fragment() {
         binding.recyclerViewBooks.adapter = adapter
 
         lifecycleScope.launch {
-            viewModel.getBooks("novels+fiction+comics").collectLatest { pagingData ->
+            viewModel.getBooks("novel+fiction").collectLatest { pagingData ->
                 adapter.submitData(pagingData)
             }
         }
     }
 
-
-    private fun fetchBooks() {
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                val query = "novels+fiction+comics"
-                val response = repository.fetchBooks(query, startIndex, maxResults)
-
-                val books = response.items ?: emptyList()
-                startIndex += maxResults
-
-                withContext(Dispatchers.Main) {
-                    adapter.submitList(books)
-                }
-            } catch (e: Exception) {
-                Log.e("HomeFragment", "Error fetching books", e)
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(requireContext(), "Failed to fetch books: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-    }
 }

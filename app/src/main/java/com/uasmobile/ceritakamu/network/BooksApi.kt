@@ -12,4 +12,11 @@ interface BooksApi {
         @Query("startIndex") startIndex: Int = 0,
         @Query("maxResults") maxResults: Int = 40
     ): BookResponse
+
+    @GET("volumes")
+    suspend fun searchBooks(
+        @Query("q") query: String,
+        @Query("langRestrict") language: String,
+        @Query("key") apiKey: String = Retrofit.API_KEY
+    ): BookResponse
 }
