@@ -61,7 +61,8 @@
             android:background="@color/teal_200"
             android:padding="12dp"
             android:layout_marginBottom="20dp"
-            tools:ignore="Autofill" />
+            tools:ignore="Autofill,TextFields"
+            app:cornerRadius="20dp" />
 
         <!-- Password -->
         <TextView
@@ -115,7 +116,8 @@
             android:textColor="@color/white"
             android:fontFamily="@font/merienda"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="20dp" />
 
         <!-- Belum Punya Akun -->
         <TextView

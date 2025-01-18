@@ -141,7 +141,8 @@
             android:textColor="@color/white"
             android:fontFamily="@font/merienda"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            app:cornerRadius="20dp" />
 
         <!-- Sudah Punya Akun -->
         <TextView

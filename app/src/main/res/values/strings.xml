@@ -11,6 +11,7 @@
     <string name="text_onboarding2">Temukan buku-buku terbaru\nCari dan eksplorasi berbagai buku dari koleksi besar kami.</string>
     <string name="text_onboarding3">Kelola koleksi bukumu\nTambahkan buku ke koleksimu dan tandai buku favorit.</string>
     <string name="welcome">Selamat Datang di Cerita Camu!</string>
+    <string name="welcome_lastonboarding">Aplikasi sederhana untuk menemukan buku favoritmu dengan mudah. Cari, temukan, baca!</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
     <string name="next">Next</string>
@@ -59,4 +60,5 @@
     <string name="cari_sesuatu">Cari sesuatu...</string>
     <string name="pilih_bahasa_dan_masukkan_pencarian">Pilih bahasa dan masukkan pencarian</string>
     <string name="tambah_ke_favorite">Tambah ke favorite</string>
+
 </resources>

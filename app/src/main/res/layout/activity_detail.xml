@@ -1,6 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:orientation="vertical"
@@ -21,6 +22,7 @@
             android:textSize="20sp"
             android:layout_marginTop="16dp"
             android:textStyle="bold"
+            android:fontFamily="@font/poppins"
             android:text="@string/title" />
 
         <RelativeLayout
@@ -37,12 +39,28 @@
                 android:layout_alignParentLeft="true">
 
                 <TextView
+                    android:id="@+id/authors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/authors"
+                    android:fontFamily="@font/merienda"
+                    android:textSize="16sp"/>
+
+                <TextView
                     android:id="@+id/authorsTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/authors"
                     android:textSize="16sp"
-                    android:layout_marginBottom="4dp" />
+                    android:layout_marginBottom="5dp" />
+
+                <TextView
+                    android:id="@+id/publisher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/publisher"
+                    android:fontFamily="@font/merienda"
+                    android:textSize="16sp"/>
 
                 <TextView
                     android:id="@+id/publisherTextView"
@@ -50,109 +68,203 @@
                     android:layout_height="wrap_content"
                     android:text="@string/publisher"
                     android:textSize="16sp"
-                    android:layout_marginBottom="4dp" />
+                    android:layout_marginBottom="5dp" />
+
+                <TextView
+                    android:id="@+id/publishedDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/published_date"
+                    android:fontFamily="@font/merienda"
+                    android:textSize="16sp"/>
 
                 <TextView
                     android:id="@+id/publishedDateTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/published_date"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp" />
             </LinearLayout>
 
             <ImageButton
                 android:id="@+id/favoriteButton"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:src="@drawable/ic_favorite_off"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:contentDescription="@string/tambah_ke_favorite" />
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:contentDescription="@string/tambah_ke_favorite"
+                android:backgroundTint="@color/teal_700"
+                android:src="@drawable/ic_favorite_off"
+                app:cornerRadius="20dp" />
         </RelativeLayout>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/descriptionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/description" />
+            android:text="@string/description"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/pageCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/page_count"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/pageCountTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/page_count" />
+            android:text="@string/page_count"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/language"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/languageTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/language" />
+            android:text="@string/language"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/categories"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/categoriesTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/categories" />
+            android:text="@string/categories"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/print"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/print_type"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/printTypeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/print_type" />
+            android:text="@string/print_type"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/maturityRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/maturity_rating"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/maturityRatingTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/maturity_rating" />
+            android:text="@string/maturity_rating"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/allowAnonLogging"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/anonymous_logging"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/allowAnonLoggingTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/anonymous_logging" />
+            android:text="@string/anonymous_logging"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/contentVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/content_version"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/contentVersionTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/content_version" />
+            android:text="@string/content_version"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/readingModes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reading_modes"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/readingModesTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/reading_modes" />
+            android:text="@string/reading_modes"
+            android:layout_marginBottom="5dp" />
+
+        <TextView
+            android:id="@+id/panelizationSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/panelization_summary"
+            android:fontFamily="@font/merienda"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/panelizationSummaryTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/panelization_summary" />
+            android:text="@string/panelization_summary"
+            android:layout_marginBottom="5dp" />
 
         <Button
             android:id="@+id/previewLinkButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/open_preview_link" />
+            android:text="@string/open_preview_link"
+            app:cornerRadius="20dp" />
 
         <Button
             android:id="@+id/infoLinkButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/open_info_link" />
+            android:text="@string/open_info_link"
+            app:cornerRadius="20dp" />
     </LinearLayout>
 </ScrollView>

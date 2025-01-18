@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Brian"
+        android:text="Username"
         android:textSize="18sp"
         android:layout_gravity="center"
         android:textColor="@color/purple_200"
@@ -30,7 +30,7 @@
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="brian@gmail.com"
+        android:text="Email"
         android:layout_gravity="center"
         android:textSize="14sp"
         android:textColor="@color/teks" />
@@ -71,6 +71,7 @@
             android:layout_marginTop="32dp"
             android:text="Logout"
             android:textColor="#FFFFFF"
-            android:backgroundTint="@color/purple_200"/>
+            android:backgroundTint="@color/purple_200"
+            app:cornerRadius="20dp"/>
     </LinearLayout>
 </LinearLayout>
