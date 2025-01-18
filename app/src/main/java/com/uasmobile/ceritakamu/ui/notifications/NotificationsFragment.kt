@@ -16,7 +16,6 @@ import com.uasmobile.ceritakamu.R
 import com.uasmobile.ceritakamu.SessionManager
 import com.uasmobile.ceritakamu.ui.editprofile.EditProfileActivity
 import com.uasmobile.ceritakamu.ui.onboarding.LastOnboardingActivity
-import com.uasmobile.ceritakamu.ui.setting.SettingsActivity
 
 class NotificationsFragment : Fragment() {
 
@@ -44,10 +43,6 @@ class NotificationsFragment : Fragment() {
             startActivity(intent)
         }
 
-        view.findViewById<LinearLayout>(R.id.llSettings).setOnClickListener {
-            val intent = Intent(requireContext(), SettingsActivity::class.java)
-            startActivity(intent)
-        }
 
         view.findViewById<Button>(R.id.btnLogout).setOnClickListener {
             sessionManager.clearSession()

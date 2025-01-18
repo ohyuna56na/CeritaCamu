@@ -64,29 +64,6 @@
                 android:textColor="#000000"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/llSettings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="12dp"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/settings"
-                app:tint="@color/black" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="Setting"
-                android:textSize="16sp"
-                android:textColor="#000000"/>
-        </LinearLayout>
-
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
