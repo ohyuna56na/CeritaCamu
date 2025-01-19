@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [FavoriteBook::class], version = 1)
+@Database(entities = [FavoriteBook::class], version = 3)
 abstract class FavoriteDatabase : RoomDatabase() {
     abstract fun favoriteBookDao(): FavoriteBookDao
 
@@ -19,7 +19,8 @@ abstract class FavoriteDatabase : RoomDatabase() {
                     context.applicationContext,
                     FavoriteDatabase::class.java,
                     "favorite_book_database"
-                ).build()
+                ).fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }

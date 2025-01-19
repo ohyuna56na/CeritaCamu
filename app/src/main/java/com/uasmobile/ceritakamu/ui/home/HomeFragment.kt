@@ -41,14 +41,12 @@ class HomeFragment : Fragment() {
         binding.recyclerViewBooks.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewBooks.adapter = adapter
 
-        // Log progress visibility change
         Log.d("HomeFragment", "Showing ProgressBar")
         binding.progressBar.visibility = View.VISIBLE
 
         lifecycleScope.launch {
             try {
                 viewModel.getBooks("novel+fiction").collectLatest { pagingData ->
-                    // Log the visibility change of the ProgressBar
                     Log.d("HomeFragment", "Hiding ProgressBar, data loaded")
                     binding.progressBar.visibility = View.GONE
                     adapter.submitData(pagingData)

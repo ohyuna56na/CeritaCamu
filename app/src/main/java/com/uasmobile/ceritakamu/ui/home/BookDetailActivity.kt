@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -12,11 +13,11 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.uasmobile.ceritakamu.R
 import com.uasmobile.ceritakamu.databinding.ActivityDetailBinding
+import com.uasmobile.ceritakamu.favoritedb.FavoriteBook
 import com.uasmobile.ceritakamu.model.BookItem
 import com.uasmobile.ceritakamu.model.VolumeInfo
 import com.uasmobile.ceritakamu.ui.dashboard.SharedViewModel
 import kotlinx.coroutines.launch
-
 
 @Suppress("DEPRECATION")
 class BookDetailActivity : AppCompatActivity() {
@@ -30,19 +31,30 @@ class BookDetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val book = intent.getParcelableExtra<BookItem>("BOOK_DATA")
-        book?.let {
-            showBookDetails(it.volumeInfo)
-            lifecycleScope.launch {
-                isFavorite = sharedViewModel.isFavorite(it)
-                updateFavoriteIcon()
-            }
+        val bookItem = intent.getParcelableExtra<BookItem>("BOOK_DATA")
+        val favoriteBook = intent.getParcelableExtra<FavoriteBook>("EXTRA_BOOK")
+
+        if (bookItem != null) {
+            showBookDetails(bookItem.volumeInfo)
+            handleFavoriteState(bookItem)
+        } else if (favoriteBook != null) {
+            showBookDetails(favoriteBook.toVolumeInfo())
+            handleFavoriteState(favoriteBook.toBookItem())
+        } else {
+            Toast.makeText(this, "Data buku tidak tersedia", Toast.LENGTH_SHORT).show()
+            finish()
         }
 
         binding.favoriteButton.setOnClickListener {
             isFavorite = !isFavorite
             updateFavoriteIcon()
-            handleFavorite(book)
+            handleFavorite(bookItem ?: favoriteBook?.toBookItem())
+        }
+
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+            title = "Detail Buku"
         }
     }
 
@@ -68,7 +80,7 @@ class BookDetailActivity : AppCompatActivity() {
                 "Image Bubbles: ${volumeInfo.panelizationSummary?.containsImageBubbles ?: "Unknown"}"
         binding.panelizationSummaryTextView.text = "Panelization Summary: $panelizationSummary"
 
-         val thumbnailUrl = volumeInfo.imageLinks?.thumbnail?.replace("http://", "https://")
+        val thumbnailUrl = volumeInfo.imageLinks?.thumbnail?.replace("http://", "https://")
 
         Glide.with(this)
             .load(thumbnailUrl)
@@ -106,5 +118,20 @@ class BookDetailActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun handleFavoriteState(book: BookItem) {
+        lifecycleScope.launch {
+            isFavorite = sharedViewModel.isFavorite(book)
+            updateFavoriteIcon()
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

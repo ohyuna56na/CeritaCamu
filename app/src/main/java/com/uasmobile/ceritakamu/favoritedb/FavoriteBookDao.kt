@@ -14,9 +14,9 @@ interface FavoriteBookDao {
     @Delete
     suspend fun removeFavorite(book: FavoriteBook)
 
-    @Query("SELECT * FROM favorite_books")
-    suspend fun getAllFavorites(): List<FavoriteBook>
+    @Query("SELECT * FROM favorite_books WHERE userId = :userId")
+    suspend fun getFavoritesByUser(userId: Int): List<FavoriteBook>
 
-    @Query("SELECT COUNT(*) FROM favorite_books WHERE id = :bookId")
-    suspend fun isFavorite(bookId: String): Int
+    @Query("SELECT COUNT(*) FROM favorite_books WHERE id = :bookId AND userId = :userId")
+    suspend fun isFavorite(bookId: String, userId: Int): Int
 }

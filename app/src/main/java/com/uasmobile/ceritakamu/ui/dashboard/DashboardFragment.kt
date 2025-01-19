@@ -41,7 +41,7 @@ class DashboardFragment : Fragment() {
 
             val adapter = FavoriteAdapter(favoriteBooks) { favoriteBook ->
                 val intent = Intent(activity, BookDetailActivity::class.java)
-                intent.putExtra("BOOK_DATA", favoriteBook)
+                intent.putExtra("EXTRA_BOOK", favoriteBook)
                 startActivity(intent)
             }
             binding.recyclerView.adapter = adapter
