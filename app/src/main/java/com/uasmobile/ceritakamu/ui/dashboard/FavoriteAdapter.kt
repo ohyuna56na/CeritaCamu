@@ -8,7 +8,7 @@ import com.uasmobile.ceritakamu.databinding.ItemFavoriteBookBinding
 import com.uasmobile.ceritakamu.favoritedb.FavoriteBook
 
 class FavoriteAdapter(
-    private val books: List<FavoriteBook>,
+    private var books: List<FavoriteBook> = listOf(),
     private val onClick: (FavoriteBook) -> Unit
 ) : RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 
@@ -40,4 +40,9 @@ class FavoriteAdapter(
     }
 
     override fun getItemCount(): Int = books.size
+
+    fun updateBooks(newBooks: List<FavoriteBook>) {
+        books = newBooks
+        notifyDataSetChanged()
+    }
 }

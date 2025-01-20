@@ -27,7 +27,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         viewModelScope.launch {
             val favorites = favoriteBookDao.getFavoritesByUser(currentUserId)
             Log.d("SharedViewModel", "Favorites loaded: $favorites")
-            _favoriteBooks.postValue(favorites)
+            _favoriteBooks.value = favorites
         }
     }
 
@@ -56,9 +56,11 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
             canonicalVolumeLink = book.volumeInfo.canonicalVolumeLink,
             userId = currentUserId
         )
+
         favoriteBookDao.addFavorite(favoriteBook)
         loadFavoriteBooks()
     }
+
 
     suspend fun removeFavoriteBook(book: BookItem) {
         val favoriteBook = FavoriteBook(

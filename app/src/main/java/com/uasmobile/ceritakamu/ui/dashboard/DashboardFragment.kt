@@ -17,6 +17,7 @@ class DashboardFragment : Fragment() {
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
     private val sharedViewModel: SharedViewModel by activityViewModels()
+    private lateinit var favoriteAdapter: FavoriteAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,21 +32,23 @@ class DashboardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Log.d("DashboardFragment", "onViewCreated called")
 
+        favoriteAdapter = FavoriteAdapter(emptyList()) { favoriteBook ->
+            val intent = Intent(activity, BookDetailActivity::class.java)
+            intent.putExtra("EXTRA_BOOK", favoriteBook)
+            startActivity(intent)
+        }
+
         binding.recyclerView.layoutManager = GridLayoutManager(context, 2)
-        Log.d("DashboardFragment", "RecyclerView LayoutManager set to GridLayoutManager")
+        binding.recyclerView.adapter = favoriteAdapter
 
         binding.progressBar.visibility = View.VISIBLE
 
         sharedViewModel.favoriteBooks.observe(viewLifecycleOwner) { favoriteBooks ->
             binding.progressBar.visibility = View.GONE
-
-            val adapter = FavoriteAdapter(favoriteBooks) { favoriteBook ->
-                val intent = Intent(activity, BookDetailActivity::class.java)
-                intent.putExtra("EXTRA_BOOK", favoriteBook)
-                startActivity(intent)
-            }
-            binding.recyclerView.adapter = adapter
+            favoriteAdapter.updateBooks(favoriteBooks)
+            binding.recyclerView.adapter = favoriteAdapter
         }
+
     }
 
     override fun onDestroyView() {
